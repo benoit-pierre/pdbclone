@@ -30,6 +30,8 @@ except ImportError:
         from distutils.command.build_ext import build_ext as _build_ext
 
 if not PY3:
+    from distutils.errors import CCompilerError, DistutilsError, CompileError
+
     class build_ext(_build_ext):
         """Subclass 'build_ext' to build extensions as 'optional'.
 
